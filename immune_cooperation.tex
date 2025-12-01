@@ -27,7 +27,7 @@ Sydney, NSW, Australia\\
 \maketitle
 
 \begin{abstract}
-The immune system is conventionally understood as a pattern-recognition system that distinguishes ``self'' from ``non-self'' via molecular signatures. We propose a more fundamental interpretation: immunity is \textbf{dimensional surveillance}---the detection and elimination of cells whose dynamical complexity has collapsed below tissue-appropriate thresholds. Cancer cells, virally-infected cells, and senescent cells share a common signature: reduced effective dimensionality, reflecting escape from the high-dimensional organismal attractor into simpler replicative or dysfunctional states. Immune receptor interactions (CD molecules, MHC-TCR coupling) function as synchronization probes that measure the dynamical complexity of target cells. Inflammation is controlled destabilization---a transient increase in tissue volatility that enables state transitions (clearance, healing, remodeling). The HPA axis modulates detection thresholds: acute stress raises tolerance transiently (survival prioritization), while chronic stress produces persistently shallow attractor basins with elevated thresholds, enabling defector cells to escape surveillance. We formalize this using Price equation multilevel selection: within-organism selection (immune enforcement against low-D defectors) trades off against between-organism selection (survival under resource constraints). Finally, we demonstrate that immune surveillance entails a thermodynamic cost: ``dynamical friction'' from coupling to low-dimensional targets drives metabolic exhaustion, explaining why chronic antigen exposure leads to T-cell functional collapse. This framework unifies cancer immunology, autoimmunity, chronic inflammation, and the evolution of adaptive immunity under a single dynamical principle: immunity is cooperation enforcement, operating through dimensional measurement at the cellular scale.
+The immune system is conventionally understood as a pattern-recognition system that distinguishes ``self'' from ``non-self'' via molecular signatures. We propose a more fundamental interpretation: immunity is \textbf{dimensional surveillance}---the detection and elimination of cells whose dynamical complexity has collapsed below tissue-appropriate thresholds. Cancer cells, virally-infected cells, and senescent cells share a common signature: reduced effective dimensionality, reflecting escape from the high-dimensional organismal attractor into simpler replicative or dysfunctional states. Immune receptor interactions (CD molecules, MHC-TCR coupling) function as synchronization probes that measure the dynamical complexity of target cells. Inflammation is controlled destabilization---a transient increase in tissue volatility that enables state transitions (clearance, healing, remodeling). The HPA axis modulates detection thresholds: acute stress raises tolerance transiently (survival prioritization), while chronic stress produces persistently shallow attractor basins with elevated thresholds, enabling defector cells to escape surveillance. We formalize this using Price equation multilevel selection: within-organism selection (immune enforcement against low-D defectors) trades off against between-organism selection (survival under resource constraints). Finally, we demonstrate that immune surveillance entails a thermodynamic cost: ``dynamical friction'' from coupling to low-dimensional targets drives metabolic exhaustion, explaining why chronic antigen exposure leads to T-cell functional collapse. When the sensor itself collapses, distinct target states alias onto the same low-dimensional projection, producing either indiscriminate attack (autoimmunity) or indiscriminate tolerance (exhaustion)---explaining the paradox of inflamm-aging. This framework unifies cancer immunology, autoimmunity, chronic inflammation, and the evolution of adaptive immunity under a single dynamical principle: immunity is cooperation enforcement, operating through dimensional measurement at the cellular scale.
 \end{abstract}
 
 \noindent\textbf{Keywords:} immunity, dimensional surveillance, attractor dynamics, inflammation, cooperation, multilevel selection, cancer immunology, HPA axis
@@ -604,6 +604,41 @@ Evolution has tuned the threshold to balance these costs. But the optimal thresh
 \end{itemize}
 
 Modern humans live in low-pathogen environments but carry immune systems tuned for high-pathogen ancestral conditions. This may explain rising autoimmunity rates.
+
+\subsection{Autoimmunity as Sensor Collapse: The Blunt Instrument Problem}
+
+The threshold model captures part of autoimmunity, but a deeper mechanism emerges from the dynamical friction analysis: \textbf{autoimmunity can result from dimensional collapse in the sensor itself}.
+
+A high-dimensional immune cell possesses sufficient degrees of freedom to distinguish ``Healthy Self'' (high-D, stable) from ``Stressed Self'' (high-D but shifted in state space) from ``Tumor'' (low-D, collapsed). It has high \textit{discriminatory resolution}. However, if the immune cell itself suffers dimensional collapse---due to dynamical friction from chronic antigen exposure, persistent inflammation, or organismal aging---it loses this resolution.
+
+Formally, discrimination requires the sensor's dimensionality to exceed the manifold dimension separating target states. When $D_{\text{sensor}} \ll D_{\text{required}}$, distinct target states \textit{alias} onto the same low-dimensional projection. The sensor cannot distinguish them.
+
+This forces the collapsed sensor into binary defaults:
+\begin{itemize}
+    \item \textbf{Indiscriminate Attack (Autoimmunity):} The collapsed sensor defaults to a rigid inflammatory program, firing on normal tissues because it lacks the dimensional bandwidth to process inhibitory context signals.
+
+    \item \textbf{Indiscriminate Tolerance (Exhaustion):} The sensor defaults to quiescence, ignoring actual threats because discrimination is metabolically impossible.
+\end{itemize}
+
+This explains the paradox of \textit{inflamm-aging}: why do elderly individuals exhibit weak immunity against novel pathogens yet strong autoimmune inflammation? Because their immune systems have collapsed into low-dimensional attractors that fire indiscriminately. The aging immune system is simultaneously ineffective (low sensitivity to genuine threats) and non-specific (high false-positive rate against self) because it has lost the complexity required for precision.
+
+Autoimmunity, on this view, is not merely a software error (wrong target recognized) but a \textbf{hardware failure} (broken measurement apparatus). The ``lens'' has degraded; the image is blurred.
+
+\subsection{Systemic Hyper-Coupling: The Autism-Autoimmunity Connection}
+
+The logic of dimensional collapse extends beyond immunity. Consider autism, characterized by excessive neural connectivity and phase-locking. Paradoxically, hyper-connectivity \textit{reduces} neural complexity: when coupling strength $K$ exceeds a critical threshold $K_c$, the system undergoes a phase transition to global synchronization. Effective dimensionality collapses toward unity as the entire network beats in unison.
+
+This suggests a unified etiology for the observed correlation between autism and autoimmunity: a systemic bias toward \textbf{hyper-coupling}. An organism with a genetic or developmental set-point for high coupling strength will exhibit dimensional collapse in every complex adaptive system:
+
+\begin{itemize}
+    \item \textbf{Neural Hyper-sync (Autism):} Excessive phase-locking reduces cognitive flexibility. The brain cannot maintain the ``chimera states'' (partial synchronization) required for complex computation. It gets stuck in deep, repetitive attractors (stereotypy) and is overwhelmed by sensory input because it cannot dampen the synchronization cascade.
+
+    \item \textbf{Immune Hyper-sync (Autoimmunity):} Excessive receptor sensitivity or signaling gain causes the immune sensor to collapse into ``Alarm'' states too easily. The system phase-locks to \textit{any} input, losing the resolution to distinguish self from non-self.
+\end{itemize}
+
+Both are manifestations of a system that has lost the ability to maintain the \textit{critical} regime between order and chaos, collapsing instead into excessive order (low dimensionality). Autism and autoimmunity are not separate diseases but the \textbf{same dynamical parameter error} ($K > K_c$) expressing itself in two different substrates.
+
+This has therapeutic implications: interventions that reduce coupling gain or restore criticality might benefit both conditions. It also reinforces the central thesis: \textbf{health is high dimensionality maintained at criticality; disease is dimensional collapse toward excessive order or chaos.}
 
 \section{Discussion}
 
