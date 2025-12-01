@@ -1,0 +1,14 @@
+=== DATA FILE CHECKSUMS (SHA256) ===
+Generated: 2025-12-01 04:51 UTC
+
+# Original GEO files
+f70438a6a5d6ea89e84dd3a912bf3b188ce34926c70fca21825b22333a3c4d56  sade_feldman_data/GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt
+e63a093f478ca10bf7a6d428dadfa3a0bad1f7e2fb1e050db68c459a8a1828c6  sade_feldman_data/GSE120575_patient_ID_single_cells.txt
+
+# Preprocessed file (trailing tabs normalized)
+c787992a1fe88afd04b0045dad5ca4aebe04d9cceeb693219765465a51be5c43  sade_feldman_data/expression_fixed.txt
+
+# Download from GEO:
+# curl -O https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120575/suppl/GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt.gz
+# curl -O https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120575/suppl/GSE120575_patient_ID_single_cells.txt.gz
+# gunzip *.gz
