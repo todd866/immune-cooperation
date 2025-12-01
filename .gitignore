@@ -9,3 +9,14 @@
 
 # OS files
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Data (too large for git)
+sade_feldman_data/
+expression_fixed.txt
+
+# Reference PDFs (not our work)
+complex systems aging.pdf
