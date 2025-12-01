@@ -4,7 +4,7 @@
 
 **Author:** Ian Todd, University of Sydney
 
-**Status:** Ready for submission (47 pages, 18 references)
+**Status:** Ready for submission (48 pages, 18 references)
 
 ---
 
@@ -17,6 +17,25 @@ Cells embedded in functional tissue exhibit high effective dimensionality—comp
 Immune receptors (CD molecules, TCR-MHC interactions) function as **synchronization probes**: they couple to target cells and measure dynamical complexity. Low-D cells get flagged for elimination.
 
 **Central thesis:** Health is high dimensionality maintained at criticality; disease is dimensional collapse.
+
+---
+
+## Why This Matters (The AI Medicine Argument)
+
+Why is a medical student writing about attractor dynamics and participation ratios instead of, say, training a classifier?
+
+**Because black-box ML would get this wrong.**
+
+Our scRNA-seq analysis found that immunotherapy non-responders have *higher* transcriptomic entropy than responders. A naive AI optimizing for "complexity predicts response" would learn the opposite of the truth. The actual signal is in the *structure* of variance—how it distributes across principal components—not its total magnitude.
+
+This required:
+- **Physics imports**: Participation ratio (from random matrix theory), attractor dynamics, Kuramoto synchronization
+- **High-dimensional data**: 55,738 genes × 16,291 cells. You can't eyeball this.
+- **Theoretical prediction**: The entropy dissociation wasn't post-hoc pattern mining. The framework *predicted* that coherent complexity (high D_eff) would differ from incoherent noise (high entropy).
+
+The punchline: if AI systems are going to reason about health and disease rather than merely pattern-match, they need access to these representations and the theory to interpret them. **The distinction between structured complexity and noise is not learnable from outcome labels alone.**
+
+This is what "AI-native medicine" actually requires—not bigger models, but better representations.
 
 ---
 
@@ -39,7 +58,7 @@ Immune receptors (CD molecules, TCR-MHC interactions) function as **synchronizat
 | `vdj_dynamics_sim.py` | `fig4_dynamics_discrimination.pdf` | Spectral entropy discriminates high-D from low-D dynamics (Cohen's d = 3.7) |
 | `costly_signalling_sim.py` | `fig1_costly_tradeoff.pdf`, `fig3_checkpoint_blockade.pdf` | Metabolic tradeoff between complexity and replication; checkpoint camouflage |
 | `costly_signalling_friction.py` | `fig_dynamical_friction.pdf` | T-cell exhaustion as forced dimensional collapse from coupling to low-D targets |
-| `run_dimensionality_analysis.py` | `fig_scrna_dimensionality.pdf` | **Empirical validation**: Responders have 2x higher D_eff (26.4 vs 13.0) |
+| `run_dimensionality_analysis.py` | `fig_scrna_dimensionality.pdf` | **Empirical validation**: Responders have 2.3x higher D_eff (28.3 vs 12.3); entropy dissociation confirms structured complexity vs noise distinction |
 
 Run any simulation:
 ```bash
@@ -104,6 +123,17 @@ This computes:
 
 Output: `figures/fig_scrna_dimensionality.pdf`
 
+### Key Results
+
+| Metric | Responders | Non-responders | Interpretation |
+|--------|------------|----------------|----------------|
+| **D_eff (PR)** | 28.3 | 12.3 | 2.3x higher structured dimensionality in responders |
+| **Entropy** | 7.49 ± 0.27 | 7.68 ± 0.35 | Non-responders have *higher* noise despite *lower* D_eff |
+| **Cells** | 5,564 | 10,727 | 16,291 total CD8+ T cells |
+| **p-value** | — | — | p < 10⁻²⁶² (entropy comparison) |
+
+The entropy dissociation is theoretically significant: non-responders exhibit a "low-D attractor + noise" signature (low PR, high entropy), while responders show genuine high-dimensional dynamics (high PR, lower entropy). This distinguishes *structured complexity* from *incoherent fluctuations*.
+
 ### Data Loader
 
 `fast_loader.py` handles the GEO formatting issues:
@@ -121,6 +151,9 @@ Output: `figures/fig_scrna_dimensionality.pdf`
 immune_cooperation/
 ├── immune_cooperation.tex    # Main paper (LaTeX)
 ├── immune_cooperation.pdf    # Compiled paper
+├── cover_letter.tex          # Submission cover letter
+├── cover_letter.pdf          # Compiled cover letter
+├── highlights.txt            # BioSystems highlights (5 items, ≤85 chars)
 ├── README.md                 # This file
 ├── DATA_CHECKSUMS.txt        # SHA256 hashes for data verification
 ├── .gitignore
@@ -129,7 +162,8 @@ immune_cooperation/
 │   ├── fig1_costly_tradeoff.pdf
 │   ├── fig3_checkpoint_blockade.pdf
 │   ├── fig4_dynamics_discrimination.pdf
-│   └── fig_dynamical_friction.pdf
+│   ├── fig_dynamical_friction.pdf
+│   └── fig_scrna_dimensionality.pdf
 │
 ├── vdj_dynamics_sim.py           # Dynamics discrimination simulation
 ├── costly_signalling_sim.py      # Costly signalling simulation
