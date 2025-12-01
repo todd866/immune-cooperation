@@ -236,19 +236,11 @@ This explains why self-tolerance is not ``learning'' a list of self-antigens. Th
 
 There is a persistent false dichotomy in biology: either a system is ``just random molecules'' (acceptable) or it is ``intelligent'' (anthropomorphizing, unacceptable). High-dimensional dynamics offers a third option that dissolves this dichotomy.
 
-Consider V(D)J recombination. The textbook description: random recombination of Variable, Diversity, and Joining gene segments generates antibody diversity. The numbers are astronomical---roughly $10^{11}$ possible heavy chain combinations, multiplied again by light chain diversity. This is typically framed as ``random'' in the sense of noise, undirected, purposeless.
+High-dimensional randomness is qualitatively different from low-dimensional randomness. When a system samples randomly from $10^{11}$ possibilities (as in antibody generation), it is not producing noise---it is \textit{exploring a high-dimensional space}. High-D random sampling provides coverage (any moderate-affinity target will be hit), projection (low-D structures cannot hide from high-D search), and refinement capacity (clonal selection performs gradient descent in the space that random sampling opened up).
 
-But high-dimensional randomness is qualitatively different from low-dimensional randomness. When a system samples randomly from $10^{11}$ possibilities, it is not producing noise---it is \textit{exploring a high-dimensional space}. The mathematical properties of high-D random sampling are precisely what enable function:
+But exploration is not surveillance. Random antibodies stick to anything vaguely complementary---including normal tissue at low affinity. The surveillance signal is not ``does something bind?'' but ``how much of this thing is there?'' When a low-dimensional replicator (virus, cancer clone) proliferates, it presents the same molecular pattern repeatedly. Multiple B or T cell clones encounter the same target; the population-level signal of clonal expansion is what triggers the response. This is dimensional measurement at the population scale: the immune system detects that something simple is multiplying, not by recognizing its identity, but by noticing the statistical anomaly of many sensors reporting the same thing.
 
-\begin{itemize}
-    \item \textbf{Coverage.} Random sampling in high-D space covers more of the space than intuition suggests. The probability that a random antibody will bind \textit{something} with moderate affinity is high, because high-D spaces have more ``surface area'' relative to volume.
-
-    \item \textbf{Projection.} Any low-dimensional structure embedded in high-D space will be intersected by random high-D sampling. A pathogen, being a low-D replicator, cannot hide from a high-D search.
-
-    \item \textbf{Refinement.} Somatic hypermutation and clonal selection then perform gradient descent in this high-D space, finding high-affinity variants. But crucially, the initial random coverage is what makes this refinement possible.
-\end{itemize}
-
-This is not a metaphor. The immune system does not ``act as if'' it were exploring high-dimensional space---it \textit{is} exploring high-dimensional space. V(D)J recombination literally generates a high-dimensional distribution over sequence space. Clonal selection literally performs optimization in this space. The ``intelligence'' of the immune system---its ability to recognize novel pathogens, to remember past infections, to distinguish self from non-self---emerges from these high-dimensional dynamics.
+This is not a metaphor. The immune system does not ``act as if'' it were exploring high-dimensional space---it \textit{is} exploring high-dimensional space. The ``intelligence'' of immunity---recognizing novel pathogens, remembering past infections, distinguishing self from non-self---emerges from these high-dimensional dynamics, not from any explicit computation.
 
 The reductionist instinct is to say: ``But it's just molecules binding to molecules.'' Yes---but the dynamics of those molecules embody computation in a deeper sense than discrete arithmetic. The immune system is not performing matrix operations; it is a continuous physical process with uncountably many degrees of freedom. Any finite-dimensional mathematical description is a projection, a map of a territory that contains more information than any map can capture. When we say the immune system ``detects'' low-dimensional dynamics, we mean that high-dimensional physical systems naturally couple differently to low-dimensional versus high-dimensional targets. This is physics, not arithmetic---the dynamics \textit{are} the computation, not a representation of computation.
 
@@ -563,10 +555,10 @@ when enforcement is effective. The replicative advantage is balanced by immune e
 The threshold $\theta$ is modulated by organismal state:
 
 \begin{equation}
-    \theta = \theta_0 + \alpha \cdot C
+    \theta = \theta_0 + \beta \cdot C
 \end{equation}
 
-where $C$ is cortisol (or a proxy for HPA activation) and $\alpha > 0$. Under stress, $\theta$ rises, and the survival function $s(\Deff, \theta)$ becomes more permissive. Low-D cells that would normally be eliminated now survive.
+where $C$ is cortisol (or a proxy for HPA activation) and $\beta > 0$ is stress sensitivity. Under stress, $\theta$ rises, and the survival function $s(\Deff, \theta)$ becomes more permissive. Low-D cells that would normally be eliminated now survive.
 
 If stress is chronic, the population evolves: cells with lower $\Deff$ accumulate because $s$ remains high. This is the Price-equation formalization of ``chronic stress enables cancer.''
 
