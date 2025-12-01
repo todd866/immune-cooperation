@@ -102,6 +102,30 @@ For a cancer cell:
 
 The immune system, we propose, measures this difference.
 
+\subsection{Operationalizing Effective Dimensionality}
+
+While $\Deff$ is a theoretical construct, several empirical metrics can approximate it:
+
+\begin{itemize}
+    \item \textbf{PCA Participation Ratio.} Given eigenvalues $\lambda_i$ of the state covariance matrix:
+    \begin{equation}
+        PR = \frac{(\sum_i \lambda_i)^2}{\sum_i \lambda_i^2}
+    \end{equation}
+    This equals 1 if variance is concentrated in one dimension; it equals $n$ if variance is uniformly distributed across $n$ dimensions.
+
+    \item \textbf{Spectral Entropy.} Given power spectrum $P(f)$ normalized to a probability distribution:
+    \begin{equation}
+        H_{\text{spectral}} = -\sum_f P(f) \log P(f)
+    \end{equation}
+    Low entropy indicates few dominant frequencies (low-D); high entropy indicates distributed power (high-D).
+
+    \item \textbf{Transcriptional Heterogeneity.} In single-cell RNA sequencing, cells with complex tissue functions show higher transcriptional entropy than cells locked in replicative programs.
+\end{itemize}
+
+These metrics are not $\Deff$ itself---they are projections of the underlying dynamical complexity onto observable quantities. But they provide testable predictions: cancer cells should show lower participation ratios, lower spectral entropy, and lower transcriptional heterogeneity than matched normal tissue.
+
+A caveat: high dimensionality per se is not sufficient for health. Pathological states like seizures and cytokine storms involve high-dimensional dynamics that are \textit{uncoordinated}---high variance but low functional integration. The healthy regime is high-dimensional \textit{and} coherent: many active modes, but modes that are coupled to tissue-level function. We might call this ``functional dimensionality'' to distinguish it from mere noise. The immune system, we suggest, detects the absence of coordinated complexity, not just the absence of complexity.
+
 \subsection{Evidence for Dimensional Collapse in Cancer}
 
 The ``hallmarks of cancer'' \cite{hanahan2011} can be reinterpreted as signatures of dimensional collapse:
@@ -191,6 +215,22 @@ Dimensional surveillance dissolves this puzzle. The immune system is not pattern
 \end{enumerate}
 
 The combinatorial explosion was never a real problem; it was an artifact of thinking about immunity as pattern-matching in sequence space rather than dimensional measurement in dynamical space. A thermometer does not need to ``recognize'' every possible temperature---it measures a scalar property. The immune system, we propose, detects anomalies in dynamical complexity---not by ``measuring'' in any cognitive sense, but through the mathematics of high-dimensional interaction.
+
+\subsection{Thymic Selection as Dimensional Filtering}
+
+The thymus is where T cell receptors are filtered before release into the periphery. The standard account: positive selection ensures TCRs can bind MHC, negative selection eliminates TCRs that bind self-peptides too strongly. But this framing is puzzling---how does eliminating self-reactive cells prepare the repertoire to recognize unknown foreign antigens?
+
+Dimensional surveillance reframes thymic selection:
+
+\begin{itemize}
+    \item \textbf{Positive selection} ensures the TCR can \textit{couple dynamically} to normal tissue cells. A receptor that cannot synchronize with high-D self dynamics is useless as a probe---it would trigger on everything or nothing. Positive selection calibrates coupling strength.
+
+    \item \textbf{Negative selection} eliminates TCRs that couple \textit{too strongly} to high-D self. These would trigger chronic activation in normal tissue. What survives are receptors that couple moderately to high-D self but strongly to low-D deviations.
+
+    \item \textbf{The final repertoire} is a collection of probes optimized to detect \textit{absence} of normal complexity. Each TCR tests a different aspect of the target cell's dynamics; the ensemble provides comprehensive coverage.
+\end{itemize}
+
+This explains why self-tolerance is not ``learning'' a list of self-antigens. The thymus trains receptors to recognize a \textit{dynamical signature}---the high-dimensional, tissue-coupled complexity of normal cells. Anything that deviates from this signature triggers suspicion, regardless of its molecular identity.
 
 \subsection{High Dimensionality Is Not a Metaphor}
 
@@ -303,6 +343,22 @@ This framework predicts a hierarchy of evasion strategies:
 \end{enumerate}
 
 Only strategies 2 and 4 allow a cell to remain a defector while evading detection. Both represent ``moving the goalposts'' rather than faking the signal. Checkpoint blockade defeats strategy 2; strategies targeting the tumor microenvironment address strategy 4.
+
+\subsection{The Mutation Burden Paradox}
+
+A puzzle in immuno-oncology: tumor mutation burden (TMB) is used as a biomarker for checkpoint blockade response, on the theory that more mutations create more neoantigens for T cells to recognize. Yet the correlation is weak and inconsistent:
+
+\begin{itemize}
+    \item Some high-TMB tumors are poorly immunogenic and do not respond to checkpoint blockade.
+    \item Some low-TMB tumors are highly immunogenic and respond well.
+    \item Within tumor types, TMB explains only a fraction of response variance.
+\end{itemize}
+
+The dimensional framework resolves this paradox. Immunogenicity is not about mutation count; it is about \textit{attractor structure}. A tumor with many mutations but a coherent replicative program (stable low-D attractor) may be harder to detect than a tumor with few mutations but chaotic, unstable dynamics (fluctuating dimensionality that periodically dips below threshold).
+
+TMB may correlate with response not because mutations create recognizable antigens, but because genomic instability destabilizes the tumor attractor, making it harder to maintain consistent dimensional camouflage. The immune system is not ``reading'' neoantigens---it is detecting dynamical instability.
+
+This predicts that transcriptional heterogeneity, attractor stability metrics, and single-cell dimensionality measures should outperform TMB as biomarkers for immunotherapy response.
 
 \section{Inflammation as Controlled Destabilization}
 
