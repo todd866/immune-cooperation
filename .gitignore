@@ -1,0 +1,11 @@
+# LaTeX temp files
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+
+# OS files
+.DS_Store

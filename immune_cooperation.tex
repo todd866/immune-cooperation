@@ -1,0 +1,580 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\geometry{margin=1in}
+\usepackage{setspace}
+\doublespacing
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Deff}{D_{\text{eff}}}
+
+\title{The Physics of Immune Cooperation: Dimensional Surveillance and Attractor Enforcement in Multicellular Systems}
+
+\author{Ian Todd\\
+Sydney Medical School\\
+University of Sydney\\
+Sydney, NSW, Australia\\
+\texttt{itod2305@uni.sydney.edu.au}}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The immune system is conventionally understood as a pattern-recognition system that distinguishes ``self'' from ``non-self'' via molecular signatures. We propose a more fundamental interpretation: immunity is \textbf{dimensional surveillance}---the detection and elimination of cells whose dynamical complexity has collapsed below tissue-appropriate thresholds. Cancer cells, virally-infected cells, and senescent cells share a common signature: reduced effective dimensionality, reflecting escape from the high-dimensional organismal attractor into simpler replicative or dysfunctional states. Immune receptor interactions (CD molecules, MHC-TCR coupling) function as synchronization probes that measure the dynamical complexity of target cells. Inflammation is controlled destabilization---a transient increase in tissue volatility that enables state transitions (clearance, healing, remodeling). The HPA axis modulates detection thresholds: acute stress raises tolerance transiently (survival prioritization), while chronic stress produces persistently shallow attractor basins with elevated thresholds, enabling defector cells to escape surveillance. We formalize this using Price equation multilevel selection: within-organism selection (immune enforcement against low-D defectors) trades off against between-organism selection (survival under resource constraints). This framework unifies cancer immunology, autoimmunity, chronic inflammation, and the evolution of adaptive immunity under a single dynamical principle: immunity is cooperation enforcement, operating through dimensional measurement at the cellular scale.
+\end{abstract}
+
+\noindent\textbf{Keywords:} immunity, dimensional surveillance, attractor dynamics, inflammation, cooperation, multilevel selection, cancer immunology, HPA axis
+
+\section{Introduction: What Is the Immune System Actually Measuring?}
+
+The textbook account of immunity centers on molecular recognition. Innate immunity detects conserved pathogen-associated molecular patterns (PAMPs); adaptive immunity generates diverse receptors that recognize specific antigens. The self/non-self distinction is implemented through negative selection in the thymus and tolerance mechanisms that prevent attack on host tissues.
+
+This framework works well for infectious disease but struggles with cancer. Cancer cells are genetically ``self''---they carry the host genome, express host proteins, and display host MHC molecules. The field has responded by adding epicycles: ``danger signals,'' damage-associated molecular patterns (DAMPs), stress ligands, and tumor-associated antigens. Each explains some observations but none provides a unified mechanism.
+
+We propose that the immune system is measuring something more fundamental than molecular identity: it is measuring \textbf{dynamical complexity}. Cells embedded in tissue perform complex, context-sensitive computations---responding to neighbors, integrating signals, maintaining tissue architecture. This complexity manifests as high effective dimensionality ($\Deff$) in the cell's dynamical state space. Cells that have ``defected'' from the tissue program---whether through malignant transformation, viral hijacking, or senescent collapse---exhibit reduced dimensionality: they have fallen into simpler attractors.
+
+Immune surveillance, on this view, is dimensional surveillance. The receptor-ligand interactions that immunologists study (CD4, CD8, MHC-TCR, checkpoint molecules) function as \textbf{synchronization probes}: the immune cell couples its oscillatory dynamics to the target cell and measures the response. High-dimensional targets produce complex, context-appropriate coupling; low-dimensional targets produce stereotyped, simplified responses.
+
+This reframing has immediate consequences:
+
+\begin{enumerate}
+    \item \textbf{Cancer immune evasion} is not primarily about hiding antigens---it is about faking high-dimensional signatures (e.g., checkpoint expression that mimics normal tissue coupling).
+
+    \item \textbf{Autoimmunity} represents miscalibrated thresholds: the system attacks normal cells that transiently dip in dimensionality (stress, infection, metabolic challenge).
+
+    \item \textbf{Chronic inflammation} is the combination of shallow attractor basins (cells prone to dimensional collapse) and raised detection thresholds (immune tolerance under persistent stress)---defectors escape because the system is both producing more of them and catching fewer.
+
+    \item \textbf{Immunotherapy} works when it restores dimensional surveillance: checkpoint blockade removes the ``fake high-D'' signals that tumors use to evade detection.
+\end{enumerate}
+
+\subsection{The Evolutionary Logic}
+
+Multicellularity creates a cooperation problem. Individual cells ``benefit'' (in the short term) from defecting to a replicative program---this is cancer. The organism requires mechanisms to detect and eliminate defectors. But detecting defection is hard: defectors carry the same genome and can express the same surface proteins as cooperators.
+
+The solution is behavioral surveillance. Cooperating cells exhibit high-dimensional dynamics because tissue function \textit{requires} complex, context-sensitive behavior. Defecting cells exhibit low-dimensional dynamics because replication is a simple program. The immune system evolved to detect this dimensional signature.
+
+This is a multilevel selection problem, formalizable via the Price equation:
+
+\begin{equation}
+    \Delta \bar{z} = \underbrace{\text{Cov}(W_i, z_i)}_{\text{within-organism selection}} + \underbrace{E[W_i \Delta z_i]}_{\text{transmission bias}}
+\end{equation}
+
+where $z$ is a trait (e.g., replicative rate), $W_i$ is fitness, and the covariance term captures selection among cells within an organism. Immune enforcement acts on this term: by eliminating high-replication (low-D) cells, the immune system suppresses within-organism selection for defection.
+
+The cost is metabolic: maintaining immune surveillance requires energy. The benefit is organismal coherence: suppressing defectors preserves the high-dimensional dynamics required for tissue function. The tradeoff is modulated by the HPA axis, which adjusts surveillance intensity based on organismal state.
+
+\section{Dimensional Collapse as Defection}
+
+\subsection{What Dimensionality Means for Cells}
+
+A cell's ``effective dimensionality'' ($\Deff$) refers to the number of independent degrees of freedom in its dynamical state. A cell performing complex tissue functions---responding to gradients, communicating with neighbors, adjusting metabolism to context---occupies a high-dimensional attractor. Its state trajectory explores many dimensions of the available state space.
+
+A cell that has collapsed into a replicative program occupies a low-dimensional attractor. The cell cycle is a limit cycle: a stereotyped sequence of states that repeats. Viral infection similarly reduces dimensionality: the cell's dynamics are dominated by the viral replication program. Senescence is another low-dimensional state: the cell has exited the complex tissue attractor but not entered replication.
+
+Formally, consider a cell's state as a vector $h(t) \in \mathbb{R}^m$ evolving according to:
+
+\begin{equation}
+    \frac{dh}{dt} = f(h, e, c)
+\end{equation}
+
+where $e$ represents environmental/tissue signals and $c$ represents cell-autonomous programs. The effective dimensionality is the number of significant principal components of the trajectory $h(t)$ over a characteristic timescale.
+
+For a cell embedded in functional tissue:
+\begin{itemize}
+    \item $e$ is high-dimensional (complex tissue signals)
+    \item The attractor is high-dimensional (many modes active)
+    \item $\Deff \sim O(10^2)$ or higher
+\end{itemize}
+
+For a cancer cell:
+\begin{itemize}
+    \item $e$ is ignored or overridden (cell-autonomous replication)
+    \item The attractor is low-dimensional (cell cycle limit cycle)
+    \item $\Deff \sim O(10^0 - 10^1)$
+\end{itemize}
+
+The immune system, we propose, measures this difference.
+
+\subsection{Evidence for Dimensional Collapse in Cancer}
+
+The ``hallmarks of cancer'' \cite{hanahan2011} can be reinterpreted as signatures of dimensional collapse:
+
+\begin{enumerate}
+    \item \textbf{Sustaining proliferative signaling}: The cell has locked into a replicative attractor and no longer requires external signals to maintain it.
+
+    \item \textbf{Evading growth suppressors}: The cell no longer responds to tissue-context signals that would modulate its state.
+
+    \item \textbf{Resisting cell death}: The cell has exited the attractor basin that includes apoptosis as a response to damage.
+
+    \item \textbf{Enabling replicative immortality}: The cell cycle limit cycle has become indefinitely stable.
+
+    \item \textbf{Inducing angiogenesis} and \textbf{activating invasion}: Secondary adaptations that support the low-D replicative state.
+
+    \item \textbf{Genome instability}: A consequence, not a cause---the low-D attractor tolerates genomic variation because the replicative program is robust.
+\end{enumerate}
+
+Crucially, the Mintz and Illmensee experiments \cite{mintz1975} demonstrated that this collapse is reversible: teratocarcinoma cells injected into mouse blastocysts contributed to normal tissues, including functional sperm. The cells were not genomically ``broken''---they were in a different attractor. The embryonic environment pushed them back into the high-dimensional tissue attractor.
+
+\subsection{Viral Infection as Dimensional Hijacking}
+
+Viral infection produces a similar dimensional signature. The virus commandeers cellular machinery for replication, collapsing the cell's dynamics into a viral-production program. The infected cell no longer performs tissue-appropriate computation; it performs viral computation.
+
+Crucially, a virus is not merely a packet of molecular information---it is a \textbf{template for an attractor}. When a virus enters a cell, it does not simply inject instructions; it captures the cell's dynamics into a viral attractor basin. The viral genome encodes not just proteins but a dynamical program that, once initiated, becomes self-sustaining. The infected cell has ``fallen into'' the viral attractor.
+
+This explains why the immune system uses similar mechanisms for cancer and infection: both are detected via the same dimensional signature. The difference is that infected cells also present viral peptides on MHC, providing an additional detection channel. But the dimensional collapse is primary; antigen presentation is secondary.
+
+\subsection{Prions as Protein-Level Attractors}
+
+Prions extend this logic to the molecular scale. A prion is not an organism or even a genome---it is a \textbf{protein conformation that constitutes a stable attractor}. The misfolded prion protein (PrP\textsuperscript{Sc}) is thermodynamically stable and, critically, it templates the misfolding of normal PrP\textsuperscript{C} proteins it contacts.
+
+In dynamical terms: the prion conformation is a low-dimensional attractor in protein folding space. It propagates by pulling other proteins into the same basin. This is ``infection'' without any genetic material---purely attractor dynamics at the molecular level.
+
+The immune system struggles with prions precisely because there is no dimensional collapse at the cellular level to detect. The cells producing misfolded proteins may still exhibit normal high-D dynamics; only the proteins themselves have fallen into a pathological attractor. This represents a blind spot in dimensional surveillance: the signal operates at the wrong scale.
+
+Notably, humans show evidence of evolutionary adaptation to prion exposure. The Fore people of Papua New Guinea, who practiced ritualistic cannibalism, suffered a devastating epidemic of kuru (a prion disease) that at its peak killed 35 per 1000 population annually \cite{mead2009}. This created intense selection on the PRNP gene: survivors were predominantly heterozygous at codon 129, and a novel protective variant (G127V) appeared that provides near-complete resistance to prion infection \cite{mead2009,asante2015}. Worldwide PRNP haplotype diversity suggests similar selection pressures occurred in other human populations---implying prehistoric prion exposure, possibly through cannibalism, was more widespread than often assumed \cite{mead2003}.
+
+From an attractor perspective, the evolutionary response to prions is instructive: because the immune system cannot detect the protein-level attractor, selection instead modified the protein's folding landscape itself. The G127V variant changes the prion protein's conformational dynamics, making it harder to fall into the pathological attractor basin. When surveillance fails, the alternative is to engineer the landscape.
+
+\section{Immune Receptors as Synchronization Probes}
+
+\subsection{The Coupling Hypothesis}
+
+Immune cells interact with target cells through multiple receptor-ligand pairs: TCR-MHC, CD4/CD8 co-receptors, costimulatory molecules (CD28-B7), coinhibitory molecules (PD-1-PD-L1, CTLA-4-B7), adhesion molecules (LFA-1-ICAM), and many others. The textbook interpretation is that these provide recognition signals: ``this is foreign'' or ``this is self.''
+
+We propose a different interpretation: these receptor interactions implement \textbf{dynamical coupling}. The immune cell synchronizes its intracellular oscillators (calcium waves, signaling cascades, cytoskeletal dynamics) with the target cell and measures the coupling response.
+
+A high-dimensional target cell produces complex, context-sensitive coupling: the signaling response depends on the cell's current state, recent history, and tissue context. The immune cell's probes return rich, variable information.
+
+A low-dimensional target cell produces stereotyped coupling: the replicative program dominates all responses, so the immune cell's probes return simplified, repetitive information.
+
+The immune cell integrates this information over time and makes a decision: attack or tolerate. The decision threshold is modulated by systemic state (inflammation, cortisol, checkpoint signals).
+
+\subsection{Checkpoint Molecules as Dimensional Camouflage}
+
+Checkpoint molecules (PD-L1, CTLA-4 ligands) are conventionally understood as ``brakes'' on immune activation---signals that say ``don't attack this cell.'' Many tumors upregulate these molecules to evade immunity.
+
+In our framework, checkpoint molecules function as \textbf{dimensional camouflage}: they inject complexity into the coupling response, making a low-D cell appear high-D to the probing immune cell. The tumor is not hiding its antigens; it is faking its dynamical signature.
+
+This explains why checkpoint blockade works: removing PD-1/PD-L1 signaling strips away the camouflage, revealing the tumor's true (low) dimensionality. The immune system can then recognize and attack.
+
+It also explains why checkpoint blockade causes autoimmunity: by removing a camouflage mechanism, we lower the effective threshold for dimensional detection. Normal cells that transiently dip in dimensionality (stress, infection, metabolic challenge) are now attacked.
+
+\subsection{Dissolving the Combinatorial Explosion}
+
+A classic puzzle in immunology is how the immune system handles combinatorial explosion. The textbook framing:
+
+\begin{itemize}
+    \item The space of possible foreign antigens is vast ($\sim 10^{15}$ possible peptides).
+    \item The repertoire of T cell receptors is large but finite ($\sim 10^{7}$--$10^{8}$ unique clonotypes).
+    \item How does the system ``cover'' antigen space with so many fewer receptors?
+\end{itemize}
+
+Standard answers invoke V(D)J recombination generating diversity, cross-reactivity allowing one receptor to recognize multiple antigens, and negative selection removing self-reactive clones. But these answers are unsatisfying---they describe the system without explaining how it actually solves the recognition problem with such apparent combinatorial mismatch.
+
+Dimensional surveillance dissolves this puzzle. The immune system is not pattern-matching in a discrete antigen space; it is measuring a continuous property (dynamical complexity) of target cells. Consider:
+
+\begin{enumerate}
+    \item \textbf{You don't need to match every antigen.} If the signal is ``this cell has low-dimensional dynamics,'' then any low-D cell triggers the response, regardless of its specific molecular makeup. There is no need to have a receptor for every possible antigen.
+
+    \item \textbf{Cross-reactivity is expected, not puzzling.} A receptor that measures dynamical coupling will respond similarly to many different low-D cells, because low-dimensionality itself is the conserved signal. ``Cross-reactivity'' is simply what dimensional detection looks like from a molecular perspective.
+
+    \item \textbf{Receptor diversity measures different aspects of complexity.} The vast diversity of TCRs is not about covering antigen space---it is about having diverse synchronization probes that sample different dimensions of the target cell's dynamics. Each receptor-MHC interaction tests a different aspect of the cell's response; the ensemble provides a high-dimensional probe.
+
+    \item \textbf{Negative selection removes high-affinity self-responders.} In our framework, negative selection eliminates receptors that strongly couple to normal high-D self dynamics. What remains are receptors calibrated to detect the \textit{absence} of normal complexity---exactly what dimensional surveillance requires.
+\end{enumerate}
+
+The combinatorial explosion was never a real problem; it was an artifact of thinking about immunity as pattern-matching in sequence space rather than dimensional measurement in dynamical space. A thermometer does not need to ``recognize'' every possible temperature---it measures a scalar property. The immune system, we propose, detects anomalies in dynamical complexity---not by ``measuring'' in any cognitive sense, but through the mathematics of high-dimensional interaction.
+
+\subsection{High Dimensionality Is Not a Metaphor}
+
+There is a persistent false dichotomy in biology: either a system is ``just random molecules'' (acceptable) or it is ``intelligent'' (anthropomorphizing, unacceptable). High-dimensional dynamics offers a third option that dissolves this dichotomy.
+
+Consider V(D)J recombination. The textbook description: random recombination of Variable, Diversity, and Joining gene segments generates antibody diversity. The numbers are astronomical---roughly $10^{11}$ possible heavy chain combinations, multiplied again by light chain diversity. This is typically framed as ``random'' in the sense of noise, undirected, purposeless.
+
+But high-dimensional randomness is qualitatively different from low-dimensional randomness. When a system samples randomly from $10^{11}$ possibilities, it is not producing noise---it is \textit{exploring a high-dimensional space}. The mathematical properties of high-D random sampling are precisely what enable function:
+
+\begin{itemize}
+    \item \textbf{Coverage.} Random sampling in high-D space covers more of the space than intuition suggests. The probability that a random antibody will bind \textit{something} with moderate affinity is high, because high-D spaces have more ``surface area'' relative to volume.
+
+    \item \textbf{Projection.} Any low-dimensional structure embedded in high-D space will be intersected by random high-D sampling. A pathogen, being a low-D replicator, cannot hide from a high-D search.
+
+    \item \textbf{Refinement.} Somatic hypermutation and clonal selection then perform gradient descent in this high-D space, finding high-affinity variants. But crucially, the initial random coverage is what makes this refinement possible.
+\end{itemize}
+
+This is not a metaphor. The immune system does not ``act as if'' it were exploring high-dimensional space---it \textit{is} exploring high-dimensional space. V(D)J recombination literally generates a high-dimensional distribution over sequence space. Clonal selection literally performs optimization in this space. The ``intelligence'' of the immune system---its ability to recognize novel pathogens, to remember past infections, to distinguish self from non-self---emerges from these high-dimensional dynamics.
+
+The reductionist instinct is to say: ``But it's just molecules binding to molecules.'' Yes---but the dynamics of those molecules embody computation in a deeper sense than discrete arithmetic. The immune system is not performing matrix operations; it is a continuous physical process with uncountably many degrees of freedom. Any finite-dimensional mathematical description is a projection, a map of a territory that contains more information than any map can capture. When we say the immune system ``detects'' low-dimensional dynamics, we mean that high-dimensional physical systems naturally couple differently to low-dimensional versus high-dimensional targets. This is physics, not arithmetic---the dynamics \textit{are} the computation, not a representation of computation.
+
+The philosopher Sidney Morgenbesser, responding to B.F. Skinner's behaviorist elimination of mental vocabulary, reportedly asked: ``Let me see if I understand your thesis. You think we shouldn't anthropomorphize people?'' The same retort applies here. If high-dimensional dynamics is what produces cognition in humans, then recognizing high-dimensional dynamics in immune systems is not anthropomorphizing---it is recognizing the same mathematics at work. We \textit{are} molecular systems. The question is not whether molecules can compute, but what kinds of computation different molecular architectures perform.
+
+This has implications beyond immunology. Wherever we see biological systems generating vast combinatorial diversity---neural connectivity, gene regulatory networks, microbial ecosystems---we should ask whether the high-dimensionality itself is functional, not merely noise to be averaged over. The dimension \textit{is} the mechanism.
+
+\subsection{Computational Demonstration}
+
+To test whether dimensional complexity is actually discriminable, we simulated cellular dynamics as coupled oscillators with varying numbers of active modes. Low-dimensional ``pathogen-like'' cells were modeled with 2--5 oscillatory modes; high-dimensional ``self-like'' cells with 20--50 modes. We then asked: can an observer distinguish these populations based on temporal dynamics alone?
+
+The answer is yes, decisively. Spectral entropy---a measure of how many frequency components contribute to a signal---discriminates low-D from high-D dynamics with Cohen's $d = 3.70$ and classification AUC $= 0.998$ (Figure \ref{fig:dynamics}). Low-dimensional systems produce coherent, periodic signals dominated by a few frequencies; high-dimensional systems produce complex, aperiodic signals with power distributed across many frequencies.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig4_dynamics_discrimination.pdf}
+    \caption{Temporal dynamics discriminate dimensionality. (A) Spectral entropy distributions show near-complete separation between low-D (pathogen-like) and high-D (self-like) dynamics. (B) Autocorrelation decay is faster for high-D signals. (C) Example time series: low-D (3 modes) shows coherent oscillation; high-D (30 modes) shows complex dynamics. (D) Synchronization pattern across probe frequencies: low-D shows sharp resonance peaks at its few active frequencies; high-D shows uniform low-level response.}
+    \label{fig:dynamics}
+\end{figure}
+
+Crucially, this discrimination requires \textit{temporal} information. Static snapshots---projections onto fixed basis vectors---do not reliably distinguish dimensionality because normalization equalizes total variance. The information lives in the time domain: how the system evolves, which frequencies it uses, how quickly correlations decay. This suggests that immune surveillance, if it operates on dimensional principles, must involve dynamic probing---sustained interaction between receptor and target, not instantaneous binding events.
+
+The simulation also confirms the costly signalling prediction: complexity and replication trade off (Figure \ref{fig:costly}). Cells that invest resources in maintaining high-dimensional dynamics have less available for replication ($r = -0.59$, $p < 0.001$). This tradeoff ensures that dimensional complexity is an honest signal---it cannot be faked without paying the metabolic cost.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig1_costly_tradeoff.pdf}
+    \caption{The costly signalling tradeoff. (A) Effective dimensionality requires metabolic investment. (B) High replication rate correlates with low probed dimensionality ($r = -0.59$). Defectors (low-D, high replication) cluster in the upper left; cooperators (high-D, low replication) in the lower right. (C) This negative correlation ensures dimensional complexity is an honest signal.}
+    \label{fig:costly}
+\end{figure}
+
+\section{Costly Signalling: Why Dimensional Complexity Cannot Be Faked}
+
+\subsection{The Honest Signal Problem}
+
+A critical question arises: if dimensional complexity is the signal, why can't defectors simply fake it? Pathogens routinely evolve molecular mimicry---expressing host-like surface proteins to evade recognition. Why can't cancer cells evolve to produce high-dimensional dynamics while maintaining their replicative advantage?
+
+The answer lies in costly signalling theory \cite{zahavi1975,grafen1990}. A signal is honest when faking it costs as much as producing it genuinely. The peacock's tail works as an honest signal of fitness because growing a large tail requires resources that unhealthy individuals cannot spare. There is no cheap way to fake it.
+
+\textbf{Dynamical complexity is a costly signal.} Producing high-dimensional, context-sensitive dynamics requires:
+
+\begin{enumerate}
+    \item \textbf{Metabolic investment}: Maintaining complex intracellular signaling networks, ion gradients, and regulatory cascades consumes ATP.
+
+    \item \textbf{Tissue integration}: Responding appropriately to neighbors requires actually sensing and processing their signals---not possible for a cell focused on autonomous replication.
+
+    \item \textbf{Coordination overhead}: High-D dynamics emerge from coupling to the tissue program. A cell running its own replicative program cannot simultaneously run the tissue program.
+
+    \item \textbf{Replication opportunity cost}: Resources invested in complexity are resources not invested in division. There is a fundamental tradeoff.
+\end{enumerate}
+
+\subsection{The Replication-Complexity Tradeoff}
+
+We can formalize this as a resource allocation problem. Let a cell have total resource budget $R$. It allocates fraction $\alpha$ to complexity maintenance (signaling networks, tissue integration) and $(1-\alpha)$ to replication machinery. Then:
+
+\begin{align}
+    \Deff &\approx f(\alpha) \quad \text{(increasing in } \alpha \text{)} \\
+    \text{Replication rate} &\approx g(1-\alpha) \quad \text{(increasing in } 1-\alpha \text{)}
+\end{align}
+
+A cell cannot maximize both. The tradeoff is fundamental.
+
+This tradeoff has deep evolutionary roots. High-dimensional dynamics require sustained energy expenditure---maintaining ion gradients, protein turnover, active transport, coordinated signaling cascades. Aerobic respiration produces roughly 15 times more ATP per glucose than anaerobic glycolysis. It is not coincidental that complex multicellular life appears in the fossil record only after the Great Oxidation Event, and that the Cambrian explosion of animal body plans follows the rise of atmospheric oxygen to near-modern levels. Oxygen didn't just enable larger bodies; it enabled the metabolic rates necessary for complex, high-dimensional cellular dynamics. The immune systems that enforce cooperation could only evolve once the energy budget existed to make dimensional complexity affordable---and to make its absence detectable.
+
+We simulated this tradeoff using a coupled oscillator model where cells allocate resources between oscillator coupling (complexity) and replication rate (Figure~\ref{fig:costly}). The results confirm strong negative correlation ($r \approx -0.6$) between probed dimensionality and replication rate. Cells attempting ``cheap camouflage'' (adding noise without true investment) are detected; cells achieving ``costly camouflage'' (actually investing in complexity) lose their replicative advantage.
+
+\subsection{Why Checkpoint Camouflage Works (Temporarily)}
+
+Checkpoint molecules represent a partial exception: they are \textit{molecular} signals (cheap to produce) that \textit{mask} the dynamical signal (expensive to measure). A cancer cell expressing PD-L1 is not producing high-D dynamics; it is interfering with the immune cell's ability to measure dynamics accurately.
+
+This is why checkpoint molecules are evolutionary innovations: they provide cheap camouflage for an otherwise honest signal. But they are not perfect---checkpoint blockade removes the mask and reveals the underlying signal (Figure~\ref{fig:checkpoint}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/fig3_checkpoint_blockade.pdf}
+    \caption{\textbf{Checkpoint Blockade Reveals True Dimensionality.} (A) With checkpoint protection, cancer cells appear to have higher dimensionality (camouflage works). (B) After checkpoint blockade, the true low-D signal is exposed and cells are detected.}
+    \label{fig:checkpoint}
+\end{figure}
+
+\subsection{Implications for Immune Evasion}
+
+This framework predicts a hierarchy of evasion strategies:
+
+\begin{enumerate}
+    \item \textbf{No evasion}: Cancer detected early and cleared. Most initiated tumors.
+
+    \item \textbf{Cheap molecular camouflage}: Checkpoint expression, antigen loss. Works temporarily; defeated by blockade or antigen-independent surveillance.
+
+    \item \textbf{Costly dynamical mimicry}: Actually investing in complexity. Works, but cell loses replicative advantage---effectively becoming a cooperator again.
+
+    \item \textbf{Threshold manipulation}: Inducing local immunosuppression (Tregs, MDSCs) to raise detection threshold. Does not fake the signal; changes the decision rule.
+\end{enumerate}
+
+Only strategies 2 and 4 allow a cell to remain a defector while evading detection. Both represent ``moving the goalposts'' rather than faking the signal. Checkpoint blockade defeats strategy 2; strategies targeting the tumor microenvironment address strategy 4.
+
+\section{Inflammation as Controlled Destabilization}
+
+\subsection{The Function of Inflammation}
+
+Inflammation is evolutionarily ancient and highly conserved. If it simply caused tissue damage and enabled cancer, it would have been selected against. Its persistence implies function.
+
+We propose that inflammation is \textbf{controlled destabilization}: a transient increase in tissue volatility that enables cellular state transitions. When defection is detected, the optimal response is often not direct killing but facilitated transition:
+
+\begin{itemize}
+    \item \textbf{Apoptosis}: The defector transitions to death.
+    \item \textbf{Clearance}: Phagocytes remove debris.
+    \item \textbf{Regeneration}: Stem cells replace lost tissue.
+    \item \textbf{Remodeling}: Tissue architecture reorganizes.
+\end{itemize}
+
+All of these require state transitions. Inflammation ``shakes'' the attractor landscape, lowering barriers between states and enabling transitions that would otherwise be kinetically trapped.
+
+In dynamical terms, inflammation increases the effective temperature of the tissue:
+
+\begin{equation}
+    P(\text{transition}) \propto \exp\left(-\frac{\Delta E}{k_B T_{\text{eff}}}\right)
+\end{equation}
+
+where $\Delta E$ is the barrier height between attractors and $T_{\text{eff}}$ is an effective temperature set by inflammatory signals. Inflammation raises $T_{\text{eff}}$, increasing transition probability.
+
+\subsection{Acute vs. Chronic Inflammation}
+
+Acute inflammation is adaptive: destabilize, clear the problem, restabilize. The tissue returns to a high-dimensional attractor with defectors removed.
+
+Chronic inflammation is maladaptive: persistent destabilization without resolution. The tissue remains in a high-$T_{\text{eff}}$ state, where:
+
+\begin{enumerate}
+    \item Attractor basins are shallow (cells easily perturbed).
+    \item State transitions are frequent (including transitions to defection).
+    \item Immune thresholds are raised (tolerance under persistent alarm).
+    \item Defectors accumulate (production exceeds clearance).
+\end{enumerate}
+
+This is the mechanism linking chronic inflammation to cancer: not ``inflammation causes mutations'' but ``inflammation destabilizes the attractor landscape, enabling escape to low-D states while simultaneously raising detection thresholds.''
+
+\section{The HPA Axis as Threshold Modulator}
+
+\subsection{Cortisol and Immune Tolerance}
+
+The hypothalamic-pituitary-adrenal (HPA) axis regulates the stress response, with cortisol as its primary effector. Cortisol is immunosuppressive: it reduces inflammatory signaling, suppresses lymphocyte proliferation, and raises the threshold for immune activation.
+
+In our framework, cortisol raises the dimensional detection threshold: under stress, tolerate more deviation from high-D tissue norms. This makes evolutionary sense. During acute stress (predator attack, injury, starvation), the organism cannot afford to divert resources to immune surveillance. Defectors that would normally be eliminated are temporarily tolerated.
+
+The problem is chronic stress. Persistently elevated cortisol produces persistently raised thresholds. Meanwhile, chronic stress often co-occurs with other destabilizing factors (poor nutrition, sleep disruption, social isolation) that shallow the attractor landscape. The combination is toxic: more cells falling into low-D states, fewer being caught.
+
+\subsection{Social Buffering and the Cooperative Niche}
+
+Social support buffers HPA-axis reactivity \cite{hostinar2014}. Individuals embedded in cooperative social networks show reduced cortisol responses to stressors. This has downstream effects on immune function: lower chronic cortisol means lower detection thresholds means better surveillance.
+
+This connects to Sierra et al.'s \cite{sierra2025} finding that cooperative species have lower cancer rates. Cooperation operates at multiple scales:
+
+\begin{enumerate}
+    \item \textbf{Cellular}: Immune enforcement against defecting cells.
+    \item \textbf{Organismal}: Developmental coherence that stabilizes tissue attractors.
+    \item \textbf{Social}: Group buffering that reduces HPA activation.
+\end{enumerate}
+
+The same dynamical structure---attractor stabilization via cooperative interaction---appears at each scale. This is ``fractal cooperation'': the mechanism is scale-invariant.
+
+\section{Price Equation Formalization}
+
+\subsection{Within-Organism Selection}
+
+Let $z_i$ be the replicative rate of cell $i$ in an organism, and $w_i$ be the cell's fitness (survival probability $\times$ replication rate). In the absence of immune enforcement:
+
+\begin{equation}
+    \Delta \bar{z} = \text{Cov}(w_i, z_i) > 0
+\end{equation}
+
+Cells with higher replicative rates have higher fitness; the population evolves toward increased replication (cancer).
+
+Immune enforcement adds a negative term: high-$z$ cells are preferentially eliminated. If detection is based on dimensionality, and high-$z$ cells have low $\Deff$:
+
+\begin{equation}
+    w_i = w_0 \cdot r(z_i) \cdot s(\Deff(z_i), \theta)
+\end{equation}
+
+where $r(z)$ is the replicative advantage of rate $z$ and $s(\Deff, \theta)$ is the survival probability given dimensionality $\Deff$ and detection threshold $\theta$. If $s$ decreases steeply as $\Deff$ falls below threshold:
+
+\begin{equation}
+    \Delta \bar{z} = \text{Cov}(w_0 \cdot r \cdot s, z) \approx 0
+\end{equation}
+
+when enforcement is effective. The replicative advantage is balanced by immune elimination.
+
+\subsection{Threshold Modulation}
+
+The threshold $\theta$ is modulated by organismal state:
+
+\begin{equation}
+    \theta = \theta_0 + \alpha \cdot C
+\end{equation}
+
+where $C$ is cortisol (or a proxy for HPA activation) and $\alpha > 0$. Under stress, $\theta$ rises, and the survival function $s(\Deff, \theta)$ becomes more permissive. Low-D cells that would normally be eliminated now survive.
+
+If stress is chronic, the population evolves: cells with lower $\Deff$ accumulate because $s$ remains high. This is the Price-equation formalization of ``chronic stress enables cancer.''
+
+\section{Evolutionary Elaboration of Immunity}
+
+\subsection{From Simple Surveillance to Adaptive Immunity}
+
+Early multicellular organisms likely had simple dimensional surveillance: phagocytes that engulfed cells falling below a complexity threshold. This is essentially what macrophages still do.
+
+The evolution of adaptive immunity (B cells, T cells, MHC, antibodies) elaborates this basic mechanism:
+
+\begin{enumerate}
+    \item \textbf{TCR/BCR diversity}: More sophisticated synchronization probes. Instead of a single coupling measurement, the adaptive immune system generates diverse probes that sample the target cell's response space.
+
+    \item \textbf{MHC presentation}: A window into the target cell's internal state. Peptide-MHC complexes report what proteins the cell is making, providing additional dimensionality information beyond surface coupling.
+
+    \item \textbf{Clonal selection}: Probes that detect low-D signatures are amplified; probes that respond to high-D (self) signatures are eliminated (negative selection) or suppressed (tolerance).
+
+    \item \textbf{Memory}: Successful probe configurations are stored, enabling rapid response to recurring threats.
+\end{enumerate}
+
+The underlying principle remains dimensional surveillance, but the implementation becomes more sophisticated.
+
+\subsection{The Autoimmunity-Cancer Tradeoff}
+
+If detection thresholds are set too low (aggressive surveillance), the system attacks normal cells that transiently dip in dimensionality. This is autoimmunity.
+
+If thresholds are set too high (permissive surveillance), the system tolerates low-D cells that should be eliminated. This is cancer susceptibility.
+
+Evolution has tuned the threshold to balance these costs. But the optimal threshold depends on environment:
+
+\begin{itemize}
+    \item High pathogen load: Lower threshold beneficial (catch infections early, tolerate autoimmune cost).
+    \item Low pathogen load: Higher threshold beneficial (avoid autoimmunity, tolerate cancer cost).
+\end{itemize}
+
+Modern humans live in low-pathogen environments but carry immune systems tuned for high-pathogen ancestral conditions. This may explain rising autoimmunity rates.
+
+\section{Discussion}
+
+\subsection{Predictions}
+
+The dimensional surveillance hypothesis makes several testable predictions:
+
+\begin{enumerate}
+    \item \textbf{Dynamical complexity correlates with immune evasion.} Tumors that evade immunity should show higher apparent dimensionality (either genuine or camouflaged) than tumors that are cleared.
+
+    \item \textbf{Checkpoint blockade reveals dimensionality.} Pre- and post-treatment comparisons should show that responding tumors had low-D dynamics masked by checkpoint signaling, while non-responders had genuinely high-D dynamics (or other evasion mechanisms).
+
+    \item \textbf{Chronic stress impairs dimensional detection.} Immunological assays under chronic cortisol exposure should show reduced discrimination between high-D and low-D targets.
+
+    \item \textbf{Social buffering restores detection.} Individuals with strong social support should show better immune discrimination, measurable via functional assays.
+
+    \item \textbf{Exercise enhances surveillance.} Consistent with existing literature: exercise reduces cortisol, stabilizes attractors, and should improve dimensional detection.
+\end{enumerate}
+
+\subsection{Relation to Existing Frameworks}
+
+Our proposal complements rather than replaces existing immunology:
+
+\begin{itemize}
+    \item \textbf{Antigen recognition} remains important, especially for infection. But dimensional surveillance provides the deeper substrate.
+
+    \item \textbf{Danger signals} (DAMPs) are downstream of dimensional collapse: damaged cells release DAMPs because their dynamics have destabilized.
+
+    \item \textbf{Immunoediting} (elimination, equilibrium, escape) maps onto our framework: elimination = low-D cells cleared; equilibrium = marginal cells at threshold; escape = cells that have acquired high-D camouflage.
+\end{itemize}
+
+\subsection{Implications for Therapy}
+
+If immunity is dimensional surveillance, therapeutic strategies should aim to:
+
+\begin{enumerate}
+    \item \textbf{Reveal true dimensionality}: Checkpoint blockade does this by removing camouflage.
+
+    \item \textbf{Force dimensional collapse}: Therapies that push tumor cells into obviously low-D states (differentiation therapy, metabolic disruption) should enhance immune recognition.
+
+    \item \textbf{Stabilize tissue attractors}: Systemic interventions that deepen attractor basins (exercise, stress reduction, anti-inflammatory lifestyle) should reduce the supply of low-D cells.
+
+    \item \textbf{Restore detection thresholds}: Interventions that normalize HPA function should improve surveillance.
+\end{enumerate}
+
+This provides a unified framework for understanding why diverse interventions (checkpoint blockade, differentiation therapy, exercise, stress reduction) all affect cancer outcomes.
+
+\subsection{Why Immunotherapy Is Reserved for Advanced Disease}
+
+A striking clinical pattern deserves attention: immunotherapy (checkpoint blockade, CAR-T) is typically reserved for patients with advanced, metastatic disease---the sickest patients. From a dimensional surveillance perspective, this may not be coincidental.
+
+Advanced cancer patients typically exhibit:
+\begin{itemize}
+    \item High tumor burden $\to$ systemic inflammation
+    \item Chronic stress $\to$ elevated cortisol
+    \item Cachexia $\to$ metabolic dysregulation
+    \item Treatment history $\to$ accumulated tissue damage
+\end{itemize}
+
+All of these factors produce \textbf{shallow attractor basins} throughout the organism. In our framework, this has competing implications:
+
+\begin{enumerate}
+    \item \textbf{Easier state transitions}: Shallow basins mean cells can be pushed into new states more easily---including death. This may enhance immunotherapy efficacy.
+
+    \item \textbf{More side effects}: Shallow basins also mean normal cells are more likely to transiently dip below detection thresholds, triggering autoimmunity. Checkpoint blockade in this context is particularly prone to immune-related adverse events.
+
+    \item \textbf{Less durable responses}: Unstable attractors don't stay put. Even if immunotherapy clears a tumor, the destabilized landscape may permit rapid recurrence or new malignancies.
+\end{enumerate}
+
+This suggests that immunotherapy might work differently---potentially better---if applied earlier, when attractor landscapes are more stable. However, clinical practice reserves it for late-stage disease due to toxicity concerns and cost. The dimensional framework suggests this may be suboptimal.
+
+\subsection{Limitations: Measuring Effective Dimensionality}
+
+A fundamental limitation of this framework is that effective dimensionality ($\Deff$) is a theoretical construct that cannot be directly measured in vivo. In our simulations, we compute $\Deff$ via principal component analysis of oscillator trajectories. In living cells, we cannot observe the full state space.
+
+What we \textit{can} measure are proxies:
+\begin{itemize}
+    \item \textbf{Gene expression dimensionality}: Single-cell RNA sequencing reveals transcriptional state space. Cancer cells often show reduced transcriptional diversity.
+
+    \item \textbf{Metabolic complexity}: Metabolomic profiling can capture metabolic network activity patterns.
+
+    \item \textbf{Calcium dynamics}: Imaging of intracellular calcium reveals oscillatory complexity that may correlate with $\Deff$.
+
+    \item \textbf{Electrophysiology}: For excitable cells, action potential patterns provide a window into dynamical complexity.
+\end{itemize}
+
+However, none of these is $\Deff$ itself. The theory is testable in principle---high-D cells should evade detection less than low-D cells, controlling for other factors---but direct measurement of the proposed signal remains a challenge.
+
+We do not claim to know the order of magnitude of $\Deff$ for real cells. In simulation, we use $\Deff \sim 10^1$; in reality, cellular state spaces may have $\Deff \sim 10^2$ or higher. The key claim is not about absolute values but about the \textit{difference} between cooperating and defecting cells: defectors should be measurably lower in whatever complexity metric is used.
+
+\section{Conclusion}
+
+The immune system evolved to solve a cooperation problem: detecting and eliminating cells that defect from the multicellular program. The signature of defection is dynamical collapse---reduced effective dimensionality reflecting escape from complex tissue attractors into simple replicative or dysfunctional states.
+
+Immune receptors function as synchronization probes that measure target cell dimensionality. Inflammation is controlled destabilization that facilitates state transitions. The HPA axis modulates detection thresholds based on organismal state.
+
+This framework unifies cancer immunology, autoimmunity, and chronic inflammation under a single principle: immunity is cooperation enforcement via dimensional surveillance. The Price equation provides the formal structure: within-organism selection favors defection; immune enforcement suppresses it; threshold modulation trades off surveillance costs against defection costs.
+
+Cancer, autoimmunity, and chronic inflammatory disease are not separate problems---they are different failure modes of a single system. Understanding immunity as dimensional surveillance may enable more principled therapeutic strategies.
+
+\section*{Acknowledgments}
+This paper was developed using an AI-assisted workflow with Claude Code (Anthropic). The author thanks the BioSystems community for ongoing engagement with this research program.
+
+\begin{thebibliography}{99}
+
+\bibitem{hanahan2011}
+Hanahan, D. and Weinberg, R.A. (2011). Hallmarks of cancer: The next generation. \emph{Cell}, 144(5), 646--674. \url{https://doi.org/10.1016/j.cell.2011.02.013}
+
+\bibitem{mintz1975}
+Mintz, B. and Illmensee, K. (1975). Normal genetically mosaic mice produced from malignant teratocarcinoma cells. \emph{Proceedings of the National Academy of Sciences}, 72(9), 3585--3589. \url{https://doi.org/10.1073/pnas.72.9.3585}
+
+\bibitem{hostinar2014}
+Hostinar, C.E., Sullivan, R.M., and Gunnar, M.R. (2014). Psychobiological mechanisms underlying the social buffering of the hypothalamic-pituitary-adrenocortical axis: A review of animal models and human studies across development. \emph{Psychological Bulletin}, 140(1), 256--282. \url{https://doi.org/10.1037/a0032671}
+
+\bibitem{sierra2025}
+Sierra, C., et al. (2025). Coevolution of cooperative lifestyles and reduced cancer prevalence in mammals. \emph{Science Advances}, 11(46), eadw0685. \url{https://doi.org/10.1126/sciadv.adw0685}
+
+\bibitem{todd2025nonergodic}
+Todd, I. (2025). Nonergodic development: How high-dimensional systems with low-dimensional anchors generate phenotypes. \emph{BioSystems} (submitted).
+
+\bibitem{zahavi1975}
+Zahavi, A. (1975). Mate selection---a selection for a handicap. \emph{Journal of Theoretical Biology}, 53(1), 205--214. \url{https://doi.org/10.1016/0022-5193(75)90111-3}
+
+\bibitem{grafen1990}
+Grafen, A. (1990). Biological signals as handicaps. \emph{Journal of Theoretical Biology}, 144(4), 517--546. \url{https://doi.org/10.1016/S0022-5193(05)80088-8}
+
+\bibitem{mead2009}
+Mead, S., et al. (2009). A novel protective prion protein variant that colocalizes with kuru exposure. \emph{New England Journal of Medicine}, 361(21), 2056--2065. \url{https://doi.org/10.1056/NEJMoa0809716}
+
+\bibitem{asante2015}
+Asante, E.A., et al. (2015). A naturally occurring variant of the human prion protein completely prevents prion disease. \emph{Nature}, 522(7557), 478--481. \url{https://doi.org/10.1038/nature14510}
+
+\bibitem{mead2003}
+Mead, S., et al. (2003). Balancing selection at the prion protein gene consistent with prehistoric kurulike epidemics. \emph{Science}, 300(5619), 640--643. \url{https://doi.org/10.1126/science.1083320}
+
+\end{thebibliography}
+
+\end{document}
