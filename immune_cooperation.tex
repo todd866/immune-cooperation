@@ -802,8 +802,14 @@ Cancer, autoimmunity, and chronic inflammatory disease are not separate problems
 
 Finally, this work has implications for computational approaches to medicine. As AI systems are increasingly deployed for diagnostic and prognostic tasks, the question arises: what representations are adequate for biological reasoning? Our analysis suggests that simple summary statistics---even sophisticated ones like transcriptomic entropy---can be misleading. Non-responders had \textit{higher} entropy than responders; a naive system optimizing for ``complexity'' would get the wrong answer. The signal was in the \textit{structure} of variance: how it distributed across principal components, not its total magnitude. This required importing concepts from physics (participation ratio, attractor dynamics) that are absent from standard medical training. If AI systems are to reason about health and disease rather than merely pattern-match, they will need access to high-dimensional state representations and the dynamical systems intuition to interpret them. The distinction between coherent complexity and incoherent noise---between functional degrees of freedom and mere disorder---is not learnable from outcome labels alone. It requires theory.
 
+\section*{Data availability}
+Single-cell RNA sequencing data are publicly available from GEO (GSE120575). Analysis code and simulation scripts are available at \url{https://github.com/todd866/immune-cooperation}.
+
 \section*{Funding}
 This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of competing interest}
+The author declares that there are no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the writing process}
 During the preparation of this work the author used Claude Code (Claude Opus 4.5) for primary drafting and simulation development, with feedback from Gemini 2.5 Pro and GPT-4o. After using these tools, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
