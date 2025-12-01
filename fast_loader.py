@@ -8,6 +8,7 @@ Author: Ian Todd
 """
 
 import pandas as pd
+import numpy as np
 import os
 
 
@@ -156,15 +157,19 @@ def load_sade_feldman_fast(data_dir="sade_feldman_data"):
     is_non_resp = df_meta[resp_col].astype(str).str.contains("Non", case=False, na=False)
     is_resp = (~is_non_resp) & df_meta[resp_col].astype(str).str.contains("Responder", case=False, na=False)
 
-    # Transpose to cells x genes
+    # Transpose to cells x genes and convert to numeric
     data_resp = df_expr.loc[:, is_resp].T
     data_non_resp = df_expr.loc[:, is_non_resp].T
+
+    # Convert to numeric, coercing errors to NaN
+    data_resp = data_resp.apply(pd.to_numeric, errors='coerce').fillna(0)
+    data_non_resp = data_non_resp.apply(pd.to_numeric, errors='coerce').fillna(0)
 
     print(f"\nSUCCESS:")
     print(f"  Responders: {len(data_resp)} cells x {data_resp.shape[1]} genes")
     print(f"  Non-responders: {len(data_non_resp)} cells x {data_non_resp.shape[1]} genes")
 
-    return data_resp.values, data_non_resp.values, df_meta
+    return data_resp.values.astype(np.float32), data_non_resp.values.astype(np.float32), df_meta
 
 
 if __name__ == "__main__":

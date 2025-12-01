@@ -670,6 +670,41 @@ Our proposal complements rather than replaces existing immunology:
     \item \textbf{Immunoediting} (elimination, equilibrium, escape) maps onto our framework: elimination = low-D cells cleared; equilibrium = marginal cells at threshold; escape = cells that have acquired high-D camouflage.
 \end{itemize}
 
+\subsection{The Immune Synapse as a Dimensional Bottleneck}
+
+Biological systems must constantly bridge two regimes: the continuous, high-dimensional regime of physical dynamics (protein vibrations, ion fluxes, metabolic oscillations) and the discrete, low-dimensional regime of biological control (mitosis, apoptosis, differentiation).
+
+The immune synapse represents the ultimate dimensional bottleneck. The input is the ``analog'' dynamical coupling between immune cell and target---a high-dimensional, continuous-time interaction involving thousands of molecular degrees of freedom. The output, however, must be digital: the cytotoxic granule release mechanism is binary. It fires or it does not.
+
+In this view, the immune system is not recognizing pre-existing labels; it is \textbf{generating codes}. ``Self'' and ``Non-self'' are not intrinsic properties of cells; they are the compressed symbolic outputs generated when high-dimensional dynamics are forced through the kill/no-kill bottleneck. The immune synapse functions as an Identification Friend or Foe (IFF) transponder system, but one where the ``squawk code'' is derived in real-time from the dynamical stability of the target.
+
+This explains why the system is fragile to noise (autoimmunity) and spoofing (cancer). The codeforming process is lossy. When a high-dimensional state (healthy tissue) is compressed into a 1-bit code (Tolerate), massive amounts of information are discarded. If dimensional friction prevents the sensor from fully exploring the target's state space, the compression fails, and the wrong code is generated. T-cell exhaustion is effectively a failure of this coding machinery---the bandwidth required to generate the correct IFF symbol exceeds the metabolic capacity of the bottleneck.
+
+This framing resolves the famous ``combinatorial explosion'' paradox: how can $\sim 10^8$ receptors cover $\sim 10^{15}$ possible antigens? The answer is that receptors are not 1-to-1 keys for locks; they are \textbf{basis vectors} that project the high-dimensional target space onto a low-dimensional manifold of coupling strengths. Antibodies bind to generic dynamical classes (molecular motifs, vibrational modes), not specific molecular identities. Cross-reactivity is not a bug but the essential feature: a single receptor covers vast swathes of ``low-D defector'' space because low-dimensionality itself is the conserved signal.
+
+\subsection{Comparative Dynamics: The Regeneration-Cancer Tradeoff}
+
+Our framework resolves the long-standing paradox of regeneration versus cancer: why do highly regenerative organisms (axolotls, planaria) show extreme cancer resistance, while mammals exhibit limited regeneration but high cancer susceptibility?
+
+\textbf{The Mammalian Strategy (High-D / Deep Attractors):}
+Mammals enforce cooperation by locking cells into deep, high-dimensional attractor basins. This creates ``high friction'' against state changes.
+\begin{itemize}
+    \item \textbf{Benefit}: Extreme resistance to casual defection. Small perturbations cannot push a cell out of its deep well.
+    \item \textbf{Cost}: Loss of regenerative capacity. The same walls that prevent cancer also prevent dedifferentiation for healing. When cancer does occur (jailbreak), it implies the cell has overcome a massive barrier, resulting in aggressive, hard-to-control phenotypes with high intratumor heterogeneity.
+\end{itemize}
+
+\textbf{The Axolotl Strategy (Low-D / Shallow Attractors):}
+Regenerative species maintain shallow, plastic attractor basins.
+\begin{itemize}
+    \item \textbf{Benefit}: High regenerative capacity. Cells can traverse between ``differentiated'' and ``stem-like'' states with minimal energy cost.
+    \item \textbf{Cost}: High theoretical instability.
+    \item \textbf{The Solution}: Instead of \textit{preventing} movement (walls), these systems rely on \textit{active guidance}. As described by Levin \cite{levin2021}, these organisms maintain robust bioelectric networks that continuously enforce the ``target morphology.'' They are masters of dimensional shepherding: they do not fear cancer because their physiology is built to manage dynamic state transitions, actively guiding wayward cells back to the tissue attractor rather than simply killing them.
+\end{itemize}
+
+Human cancer vulnerability is thus the ``price of permanence''---the cost of relying on rigid structural constraints rather than the active bioelectric management seen in regenerative species. Scarring is a high-D, panic-mode response to injury: lock everything down to prevent dimensional collapse.
+
+This suggests a dimensional phase diagram across species: regeneration capacity, cancer incidence, and effective dimensionality co-vary. Higher-D organisms have less regeneration and fewer ``simple'' cancers, but when cancer escapes, it is high-D cancer---heterogeneous, plastic, and evasive. Lower-D organisms with active guidance suppress even simple cancers and can re-run developmental programs to clear aberrant cells.
+
 \subsection{Implications for Therapy}
 
 If immunity is dimensional surveillance, therapeutic strategies should aim to:
@@ -791,6 +826,9 @@ Antoni, M.H. and Dhabhar, F.S. (2019). The impact of psychosocial stress and str
 
 \bibitem{lutgendorf2007}
 Lutgendorf, S.K., Sood, A.K., and Antoni, M.H. (2010). Host factors and cancer progression: Biobehavioral signaling pathways and interventions. \emph{Journal of Clinical Oncology}, 28(26), 4094--4099. \url{https://doi.org/10.1200/JCO.2009.26.9357}
+
+\bibitem{levin2021}
+Levin, M. (2021). Bioelectric signaling: Reprogrammable circuits underlying embryogenesis, regeneration, and cancer. \emph{Cell}, 184(8), 1971--1989. \url{https://doi.org/10.1016/j.cell.2021.02.034}
 
 \end{thebibliography}
 
