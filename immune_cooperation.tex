@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{geometry}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \geometry{margin=1in}
@@ -254,7 +255,7 @@ To test whether dimensional complexity is actually discriminable, we simulated c
 
 The answer is yes, decisively. Spectral entropy---a measure of how many frequency components contribute to a signal---discriminates low-D from high-D dynamics with Cohen's $d = 3.70$ and classification AUC $= 0.998$ (Figure \ref{fig:dynamics}). Low-dimensional systems produce coherent, periodic signals dominated by a few frequencies; high-dimensional systems produce complex, aperiodic signals with power distributed across many frequencies.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figures/fig4_dynamics_discrimination.pdf}
     \caption{Temporal dynamics discriminate dimensionality. (A) Spectral entropy distributions show near-complete separation between low-D (pathogen-like) and high-D (self-like) dynamics. (B) Autocorrelation decay is faster for high-D signals. (C) Example time series: low-D (3 modes) shows coherent oscillation; high-D (30 modes) shows complex dynamics. (D) Synchronization pattern across probe frequencies: low-D shows sharp resonance peaks at its few active frequencies; high-D shows uniform low-level response.}
@@ -265,7 +266,7 @@ Crucially, this discrimination requires \textit{temporal} information. Static sn
 
 The simulation also confirms the costly signalling prediction: complexity and replication trade off (Figure \ref{fig:costly}). Cells that invest resources in maintaining high-dimensional dynamics have less available for replication ($r = -0.59$, $p < 0.001$). This tradeoff ensures that dimensional complexity is an honest signal---it cannot be faked without paying the metabolic cost.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figures/fig1_costly_tradeoff.pdf}
     \caption{The costly signalling tradeoff. (A) Effective dimensionality requires metabolic investment. (B) High replication rate correlates with low probed dimensionality ($r = -0.59$). Defectors (low-D, high replication) cluster in the upper left; cooperators (high-D, low replication) in the lower right. (C) This negative correlation ensures dimensional complexity is an honest signal.}
@@ -313,7 +314,7 @@ Checkpoint molecules represent a partial exception: they are \textit{molecular} 
 
 This is why checkpoint molecules are evolutionary innovations: they provide cheap camouflage for an otherwise honest signal. But they are not perfect---checkpoint blockade removes the mask and reveals the underlying signal (Figure~\ref{fig:checkpoint}).
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/fig3_checkpoint_blockade.pdf}
     \caption{\textbf{Checkpoint Blockade Reveals True Dimensionality.} (A) With checkpoint protection, cancer cells appear to have higher dimensionality (camouflage works). (B) After checkpoint blockade, the true low-D signal is exposed and cells are detected.}
@@ -391,7 +392,7 @@ This equation is central. With aging and chronic stress, organism-level loss of 
 
 This is not merely ``tiredness''---it is a thermodynamic phase transition. The immune cell literally cannot maintain enough dimensions to distinguish self from non-self. It has been pulled into the tumor's attractor.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/fig_dynamical_friction.pdf}
     \caption{\textbf{Dynamical Friction and Exhaustion.} (A) Probing a low-dimensional target (red) drains metabolic reserve rapidly compared to a high-dimensional target (teal) due to the cost of resisting synchronization. (B) When reserve is depleted, the immune cell undergoes a phase transition, collapsing into a low-dimensional exhausted state. Simulation uses coupled Kuramoto oscillators where high-D corresponds to desynchronized dynamics and low-D corresponds to synchronized dynamics. See Equation~\ref{eq:exhaustion_time} for the scaling relationship.}
@@ -775,7 +776,7 @@ Non-responding cells exhibit ``incoherent complexity''---high transcriptional no
 Responding cells exhibit ``coherent complexity''---variance distributed across many coordinated modes (high $PR$).
 This confirms that the immune system targets dimensional collapse (loss of functional degrees of freedom), not merely thermodynamic disorder.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_scrna_dimensionality.pdf}
 \caption{\textbf{Empirical validation of dimensional surveillance.} scRNA-seq analysis of T-cells from melanoma patients (GSE120575). \textbf{(A)} Eigenvalue spectrum shows flatter decay in responders, indicating variance distributed across more principal components. \textbf{(B)} Participation ratio (effective dimensionality) is 2.3-fold higher in responders ($PR \approx 28$) than non-responders ($PR \approx 12$). \textbf{(C)} Transcriptomic entropy shows the opposite pattern: non-responders have slightly higher per-cell entropy ($d = -0.58$). This dissociation reveals that functional immune surveillance correlates with \textit{coherent} high-dimensional structure, not mere disorder.}
