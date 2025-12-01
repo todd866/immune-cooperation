@@ -1,0 +1,45 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\signature{Ian Todd\\Sydney Medical School\\University of Sydney\\itod2305@uni.sydney.edu.au}
+\address{Ian Todd\\Sydney Medical School\\University of Sydney\\Sydney, NSW, Australia}
+
+\begin{document}
+
+\begin{letter}{Professor Abir Igamberdiev\\Editor-in-Chief\\BioSystems}
+
+\opening{Dear Professor Igamberdiev,}
+
+I am pleased to submit ``The Physics of Immune Cooperation: Dimensional Surveillance and Attractor Enforcement in Multicellular Systems'' for consideration in \emph{BioSystems}.
+
+This manuscript proposes a unified theoretical framework that resolves the ``combinatorial explosion'' paradox in immunology by reframing immune recognition as a problem of \textbf{dimensional surveillance}. Drawing on attractor dynamics, costly signalling theory, and the bioelectric frameworks of Levin et al., I argue that the immune system does not merely recognize molecular patterns but actively measures the dynamical complexity ($D_{\text{eff}}$) of target cells.
+
+Cancer cells, virally-infected cells, and senescent cells share a common signature: reduced effective dimensionality, reflecting escape from high-dimensional organismal attractors into simpler replicative or dysfunctional states. Immune receptor interactions (CD molecules, MHC-TCR coupling) function as \textbf{synchronization probes} that couple to target cells and measure their dynamical complexity. This reframing unifies cancer immune evasion, T-cell exhaustion, autoimmunity, and chronic inflammation under a single dynamical principle.
+
+\textbf{Key Contributions:}
+\begin{enumerate}
+    \item \textbf{Dynamical Friction and Exhaustion:} I derive T-cell exhaustion not as a functional defect but as a thermodynamic consequence of ``dynamical friction''---the metabolic cost of coupling a high-dimensional sensor to a low-dimensional target. Exhaustion time scales as $t_{\text{exhaust}} \sim E_0 / k(\Delta D)^2$.
+
+    \item \textbf{Sensor Collapse and Inflamm-aging:} When the immune sensor itself loses dimensionality, distinct target states alias onto the same low-dimensional projection, producing either indiscriminate attack (autoimmunity) or indiscriminate tolerance (exhaustion)---explaining the paradox of inflamm-aging.
+
+    \item \textbf{Empirical Validation:} Crucially, I test this theory against single-cell RNA sequencing data from melanoma patients (GSE120575). T-cells from immunotherapy responders exhibit \textbf{twofold higher effective dimensionality} (participation ratio $\approx 26.4$) compared to non-responders ($\approx 13.0$).
+\end{enumerate}
+
+\textbf{The Dimensionality-Entropy Dissociation:} Our analysis reveals a critical theoretical distinction. While responders have higher \textit{dimensional structure} ($D_{\text{eff}}$), they do not have higher \textit{transcriptomic entropy}---in fact, entropy is slightly higher in non-responders. This empirically distinguishes \textbf{coherent complexity} (health) from \textbf{incoherent noise} (disease), validating the core premise that the immune system targets loss of functional degrees of freedom, not merely thermodynamic disorder.
+
+This submission continues a research program on dimensional constraints in biology:
+\begin{itemize}
+    \item Todd (2025a): ``The limits of falsifiability'' (DOI: 10.1016/j.biosystems.2025.105608)
+    \item Todd (2025b): ``Timing inaccessibility and the projection bound'' (DOI: 10.1016/j.biosystems.2025.105632)
+\end{itemize}
+
+The manuscript engages substantially with Cohen et al.\ (2022, \emph{Nature Aging}) on complex systems approaches to aging, and Levin (2021, \emph{Cell}) on bioelectric signaling and morphogenetic fields. All simulation code and analysis scripts are available at \url{https://github.com/todd866/immune-cooperation}.
+
+This manuscript is original and not under consideration for publication elsewhere.
+
+\closing{Thank you for your consideration.}
+
+\end{letter}
+\end{document}

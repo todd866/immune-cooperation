@@ -4,7 +4,7 @@
 
 **Author:** Ian Todd, University of Sydney
 
-**Status:** Draft (45 pages, 49 references)
+**Status:** Ready for submission (47 pages, 18 references)
 
 ---
 
@@ -39,6 +39,7 @@ Immune receptors (CD molecules, TCR-MHC interactions) function as **synchronizat
 | `vdj_dynamics_sim.py` | `fig4_dynamics_discrimination.pdf` | Spectral entropy discriminates high-D from low-D dynamics (Cohen's d = 3.7) |
 | `costly_signalling_sim.py` | `fig1_costly_tradeoff.pdf`, `fig3_checkpoint_blockade.pdf` | Metabolic tradeoff between complexity and replication; checkpoint camouflage |
 | `costly_signalling_friction.py` | `fig_dynamical_friction.pdf` | T-cell exhaustion as forced dimensional collapse from coupling to low-D targets |
+| `run_dimensionality_analysis.py` | `fig_scrna_dimensionality.pdf` | **Empirical validation**: Responders have 2x higher D_eff (26.4 vs 13.0) |
 
 Run any simulation:
 ```bash

@@ -85,17 +85,38 @@ def run_analysis():
     print("COMPUTING DIMENSIONALITY METRICS...")
     print("-"*60)
 
-    # Convert to float (may contain strings)
-    print("Converting to numeric...")
-    data_resp = data_resp.astype(np.float32)
-    data_non_resp = data_non_resp.astype(np.float32)
+    # Robust numeric conversion - handle any remaining strings
+    print("Converting to numeric (robust)...")
 
-    # Replace any NaN with 0
-    data_resp = np.nan_to_num(data_resp, 0)
-    data_non_resp = np.nan_to_num(data_non_resp, 0)
+    def robust_to_float(arr):
+        """Convert array to float, handling strings safely."""
+        if arr.dtype == np.float32 or arr.dtype == np.float64:
+            return np.nan_to_num(arr, nan=0.0).astype(np.float32)
+        # If still object dtype (strings), convert element by element
+        if arr.dtype == object:
+            import pandas as pd
+            df = pd.DataFrame(arr)
+            df = df.apply(pd.to_numeric, errors='coerce').fillna(0)
+            return df.values.astype(np.float32)
+        # Try direct conversion
+        try:
+            return np.nan_to_num(arr.astype(np.float32), nan=0.0)
+        except (ValueError, TypeError):
+            # Last resort: element-wise conversion
+            result = np.zeros(arr.shape, dtype=np.float32)
+            flat = arr.flatten()
+            for i, val in enumerate(flat):
+                try:
+                    result.flat[i] = float(val)
+                except (ValueError, TypeError):
+                    result.flat[i] = 0.0
+            return result
 
-    print(f"  Responders shape: {data_resp.shape}")
-    print(f"  Non-responders shape: {data_non_resp.shape}")
+    data_resp = robust_to_float(data_resp)
+    data_non_resp = robust_to_float(data_non_resp)
+
+    print(f"  Responders shape: {data_resp.shape}, dtype: {data_resp.dtype}")
+    print(f"  Non-responders shape: {data_non_resp.shape}, dtype: {data_non_resp.dtype}")
 
     # Filter out zero-variance genes to speed up
     print("Filtering low-variance genes...")

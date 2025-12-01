@@ -1,0 +1,7 @@
+HIGHLIGHTS
+
+- Immunity is modeled as dimensional surveillance, detecting dynamical collapse.
+- Cancer and exhaustion represent phase transitions into low-dimensional attractors.
+- Immune receptors act as synchronization probes measuring target cell complexity.
+- Thermodynamic "friction" during low-D coupling drives T-cell exhaustion.
+- scRNA-seq analysis confirms responders have 2x higher effective dimensionality.
