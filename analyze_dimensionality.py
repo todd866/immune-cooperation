@@ -83,31 +83,65 @@ def generate_mock_data(n_cells=500, n_genes=1000):
     return data_responder, data_non_responder
 
 
-def load_real_data(h5ad_path):
+def load_real_data(data_dir="sade_feldman_data"):
     """
-    Load real scRNA-seq data from h5ad file.
+    Load GSE120575 (Sade-Feldman melanoma checkpoint response) from raw GEO files.
 
-    Requires: pip install scanpy anndata
+    Requires: pip install scanpy anndata pandas
 
-    For GSE120575 (Sade-Feldman):
-    - Download from GEO or Single Cell Portal
-    - Check adata.obs.columns for response metadata column name
+    Download files first:
+        curl -O "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120575/suppl/GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt.gz"
+        curl -O "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120575/suppl/GSE120575_patient_ID_single_cells.txt.gz"
+        gunzip *.gz
     """
-    import scanpy as sc
+    import pandas as pd
+    import anndata
+    import os
 
-    print(f"Loading {h5ad_path}...")
-    adata = sc.read_h5ad(h5ad_path)
+    print("Loading expression matrix (this may take a minute)...")
 
-    # Adjust column names based on actual metadata
-    # Common names: 'response', 'Response', 'clinical_response'
-    response_col = 'response'  # <-- ADJUST THIS
+    # 1. Load Expression Matrix (Rows=Genes, Cols=Cells)
+    matrix_path = os.path.join(data_dir, "GSE120575_Sade_Feldman_melanoma_single_cells_TPM_GEO.txt")
+    df_expr = pd.read_csv(matrix_path, sep='\t', index_col=0)
+    print(f"  Expression matrix: {df_expr.shape[0]} genes x {df_expr.shape[1]} cells")
 
-    responders = adata[adata.obs[response_col] == 'Responder'].X
-    non_responders = adata[adata.obs[response_col] == 'Non-responder'].X
+    # 2. Load Metadata
+    meta_path = os.path.join(data_dir, "GSE120575_patient_ID_single_cells.txt")
+    df_meta = pd.read_csv(meta_path, sep='\t')
 
-    if hasattr(responders, "toarray"):
-        responders = responders.toarray()
-        non_responders = non_responders.toarray()
+    # Clean column names (GEO uses verbose names like 'characteristics: response')
+    df_meta.columns = [c.split(': ')[-1] if ': ' in c else c for c in df_meta.columns]
+    print(f"  Metadata columns: {list(df_meta.columns)}")
+
+    # 3. Create AnnData (Cells x Genes, so transpose)
+    print("Creating AnnData object...")
+    adata = anndata.AnnData(X=df_expr.T.values)
+    adata.obs_names = df_expr.columns
+    adata.var_names = df_expr.index
+
+    # 4. Merge metadata - align by cell names
+    df_meta_indexed = df_meta.set_index(df_meta.columns[0])
+    adata.obs = df_meta_indexed.loc[adata.obs_names]
+
+    # 5. Find response column and split
+    response_col = [c for c in adata.obs.columns if 'response' in c.lower()]
+    if not response_col:
+        print("  Available columns:", list(adata.obs.columns))
+        raise ValueError("No 'response' column found in metadata")
+    response_col = response_col[0]
+    print(f"  Using response column: '{response_col}'")
+    print(f"  Response values: {adata.obs[response_col].value_counts().to_dict()}")
+
+    # Split by response
+    resp_mask = adata.obs[response_col].astype(str).str.lower().str.contains('responder') & \
+                ~adata.obs[response_col].astype(str).str.lower().str.contains('non')
+    non_resp_mask = adata.obs[response_col].astype(str).str.lower().str.contains('non-responder|non responder|nonresponder')
+
+    responders = adata.X[resp_mask]
+    non_responders = adata.X[non_resp_mask]
+
+    print(f"  Responders: {responders.shape[0]} cells")
+    print(f"  Non-responders: {non_responders.shape[0]} cells")
 
     return responders, non_responders
 
@@ -171,10 +205,10 @@ def plot_results(data_resp, data_non_resp, output_path='figures/fig_dimensionali
 if __name__ == "__main__":
     # Toggle for real vs mock data
     USE_REAL_DATA = False
-    REAL_DATA_PATH = "GSE120575.h5ad"
+    REAL_DATA_DIR = "sade_feldman_data"  # Directory with downloaded GEO files
 
     if USE_REAL_DATA:
-        data_resp, data_non_resp = load_real_data(REAL_DATA_PATH)
+        data_resp, data_non_resp = load_real_data(REAL_DATA_DIR)
     else:
         print("Using mock data (set USE_REAL_DATA=True for real analysis)")
         data_resp, data_non_resp = generate_mock_data()
